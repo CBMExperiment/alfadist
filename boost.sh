@@ -33,7 +33,7 @@ if [[ FAIRROOT ]]; then
     if [[ $CXXFLAGS == *"-stdlib=libc++"* ]]; then
       cxxflags="$cxxflags -stdlib=libc++"
     fi
-    myflags='cxxflags="$cxxflags" linkflags="$cxxflags"'
+    myflags="cxxflags=\"$cxxflags\" linkflags=\"$cxxflags\""
   else
     myflags=""
   fi
