@@ -12,7 +12,6 @@ disable:
   - AliEn-Runtime
   - AliRoot
   - lhapdf
-  - DDS
 overrides:
   boost:
     tag: "v1.61.0"
@@ -25,6 +24,15 @@ overrides:
   ROOT:
     version: "%(tag_basename)s"
     tag: "v6-06-04"
+    requires: 
+      - AliEn-Runtime:(?!.*ppc64)
+      - AlfaXRootD
+      - GSL
+      - pythia
+      - opengl:(?!osx)
+      - Xdevel:(?!osx)
+      - FreeType:(?!osx)
+      - pythia6
   CMake:
     tag: "v3.5.2"
     prefer_system_check: |

@@ -27,24 +27,24 @@ case $ARCHITECTURE in
 esac
 
 
-if [[ FAIRROOT ]]; then
-  if [[ $CXXFLAGS == *"-std=c++11"* ]]; then
-    myflags="cxxflags=\"-std=c++11\""
-    if [[ $CXXFLAGS == *"-stdlib=libc++"* ]]; then
-      myflags="cxxflags=\"-std=c++11\" cxxflags=\"-stdlib=libc++\" linkflags=\"-stdlib=libc++\""
-    fi
-  else
-    myflags=""
-  fi
-  rsync -a $SOURCEDIR/ $BUILDDIR/
-  ./bootstrap.sh $myflags --with-toolset=$TOOLSET
-  ./b2 -q -d2 \
-    --build-dir=$PWD/tmp --build-type=minimal \
-    --toolset=$TOOLSET --prefix=$INSTALLROOT  \
-    --layout=system ${JOBS+-j $JOBS} \
-    $myflags \
-    install
-else
+#if [[ FAIRROOT ]]; then
+#  if [[ $CXXFLAGS == *"-std=c++11"* ]]; then
+#    myflags="cxxflags=\"-std=c++11\""
+#    if [[ $CXXFLAGS == *"-stdlib=libc++"* ]]; then
+#      myflags="cxxflags=\"-std=c++11\" cxxflags=\"-stdlib=libc++\" linkflags=\"-stdlib=libc++\""
+#    fi
+#  else
+#    myflags=""
+#  fi
+#  rsync -a $SOURCEDIR/ $BUILDDIR/
+#  ./bootstrap.sh $myflags --with-toolset=$TOOLSET
+#  ./b2 -q -d2 \
+#    --build-dir=$PWD/tmp --build-type=minimal \
+#    --toolset=$TOOLSET --prefix=$INSTALLROOT  \
+#    --layout=system ${JOBS+-j $JOBS} \
+#    $myflags \
+#    install
+#else
   rsync -a $SOURCEDIR/ $BUILDDIR/
   cd $BUILDDIR/tools/build
   bash bootstrap.sh $TOOLSET
@@ -74,7 +74,7 @@ else
      variant=release \
      $EXTRA_CXXFLAGS \
      install
-fi
+#fi
 # Modulefile
 MODULEDIR="$INSTALLROOT/etc/modulefiles"
 MODULEFILE="$MODULEDIR/$PKGNAME"
