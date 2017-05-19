@@ -66,6 +66,7 @@ cmake $SOURCEDIR                                                 \
       -DPROTOBUF_INCLUDE_DIR=$PROTOBUF_ROOT/include              \
       -DPROTOBUF_PROTOC_EXECUTABLE=$PROTOBUF_ROOT/bin/protoc     \
       -DPROTOBUF_LIBRARY=$PROTOBUF_ROOT/lib/libprotobuf.$SONAME  \
+      -DGTEST_ROOT=$GOOGLETEST_ROOT                              \
       -DCMAKE_INSTALL_PREFIX=$INSTALLROOT
 # Limit the number of build processes to avoid exahusting memory when building
 # on smaller machines.
