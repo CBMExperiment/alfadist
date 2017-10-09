@@ -2,6 +2,8 @@ package: CLHEP
 version: "2.2.0.8"
 source: https://github.com/alisw/clhep
 tag: CLHEP_2_2_0_8
+build_requires:
+ - CMake
 ---
 #!/bin/sh
 cmake $SOURCEDIR \
