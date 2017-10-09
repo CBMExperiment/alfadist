@@ -2,6 +2,8 @@ package: Millepede
 version: "V04-03-04"
 source: https://github.com/FairRootGroup/Millepede
 tag: alfa/V04-03-04
+build_requires:
+ - CMake
 ---
 ##!/bin/sh
 rsync -a --exclude '**/.git' --delete $SOURCEDIR/ $BUILDDIR
